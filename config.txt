@@ -15,3 +15,6 @@ vendor/bin/php-cs-fixer fix
 
 composer require --dev phpstan/phpstan phpstan/extension-installer phpstan/phpstan-symfony phpstan/phpstan-phpunit phpstan/phpstan-doctrine
 
+#makefile creation des commande dans le fichier
+
+composer require stof/doctrine-extensions-bundle
