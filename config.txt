@@ -1,0 +1,17 @@
+#installation de symfony
+symfony new nom_de_projet
+
+#installation des composants ou librairie
+composer require --dev debug
+composer require twig
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+
+#installation de PHP CS fixer pour une normalisation
+composer require friendsofphp/php-cs-fixer --dev
+
+#lancer la commande pour la normalisation
+vendor/bin/php-cs-fixer fix
+
+composer require --dev phpstan/phpstan phpstan/extension-installer phpstan/phpstan-symfony phpstan/phpstan-phpunit phpstan/phpstan-doctrine
+
