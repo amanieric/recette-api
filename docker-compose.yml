@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  app:
+    image: codeing/php:8.2-symfony
+    depends_on:
+      - db
+    volumes:
+      - .:/src
+  nginx:
+    image: codeing/nginx:8-symfony
+    depends_on:
+      - app
+    volumes:
+      - .:/src
+    ports:
+      - "8000:80"
+
+  db:
+    image: mariadb:10
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+      MARIADB_DATABASE: recette_db
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: "non"
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+volumes:
+  db-data: []
